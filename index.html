@@ -1,551 +1,591 @@
-<!DOCTYPE html>
-<html lang="fr" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oanh DO — Administratrice Systèmes, Réseaux & Sécurité</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+/* Radical Theme Palette (Matching github.com/odo42 GitHub Stats) */
+:root[data-theme="dark"] {
+  --bg: #0f0e1a;
+  --bg-elevated: #141321;
+  --bg-card: #181629;
+  --bg-pill: #211e36;
+  --border: #2e2a4a;
+  --text: #a9fef7;
+  --text-muted: #9b99b8;
+  --accent: #fe428e;        /* Radical Neon Pink-Magenta */
+  --accent-secondary: #f8d847; /* Radical Gold-Yellow highlight */
+  --accent-soft: rgba(254, 66, 142, 0.14);
+  --green: #38e5b5;
+  --green-soft: rgba(56, 229, 181, 0.14);
+  --nav-bg: rgba(20, 19, 33, 0.88);
+}
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="brand">Oanh DO</a>
+:root[data-theme="light"] {
+  --bg: #faf7fc;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-pill: #f3eef8;
+  --border: #e2d9ec;
+  --text: #1b182e;
+  --text-muted: #585373;
+  --accent: #d91b6b;
+  --accent-secondary: #b45309;
+  --accent-soft: rgba(217, 27, 107, 0.1);
+  --green: #059669;
+  --green-soft: rgba(5, 150, 105, 0.12);
+  --nav-bg: rgba(250, 247, 252, 0.9);
+}
 
-      <ul class="nav-links">
-        <li><a href="#about">Profil</a></li>
-        <li><a href="#parcours">Parcours</a></li>
-        <li><a href="#skills">Compétences</a></li>
-        <li><a href="#projects">Projets</a></li>
-        <li><a href="#certif">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-      <div class="nav-right">
-        <span class="status-pill">
-          <span class="status-dot"></span>
-          Stage · Avril 2027
-        </span>
-        <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">◐ Clair</button>
-      </div>
-    </div>
-  </header>
+html {
+  scroll-behavior: smooth;
+}
 
-  <main class="container">
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.25s ease, color 0.25s ease;
+}
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero">
-      <div>
-        <div class="hero-eyebrow">Bachelor 3 AIS — École La Plateforme, Lille — 2026 / 2027</div>
-        <h1>Oanh DO</h1>
-        <p class="hero-subtitle">Réseaux · Sécurité · Systèmes · Exploitation &amp; Supervision</p>
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-        <p id="about" class="hero-bio">
-          Administratrice systèmes et réseaux en formation AIS à <strong>La Plateforme Lille</strong>, je m'appuie sur près de cinq ans de support technique N2 dans des environnements internationaux. J'ai diagnostiqué et résolu des incidents logiciels et matériels complexes, formé une équipe de dix techniciens et rédigé la documentation technique, et j'administre aujourd'hui des systèmes Linux et Windows Server en formation.
-        </p>
+/* Sticky Top Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
 
-        <div class="stats-grid">
-          <div class="stat-box">
-            <span class="stat-value">~5 ANS</span>
-            <span class="stat-label">Support Tech N2</span>
-          </div>
-          <div class="stat-box">
-            <span class="stat-value">2 LABS</span>
-            <span class="stat-label">Documentés GitHub</span>
-          </div>
-          <div class="stat-box">
-            <span class="stat-value">CISCO</span>
-            <span class="stat-label">CyberOps Assoc.</span>
-          </div>
-          <div class="stat-box">
-            <span class="stat-value">FR / EN</span>
-            <span class="stat-label">C1 &amp; Bilingue</span>
-          </div>
-        </div>
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
 
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-          <a href="https://github.com/odo42" target="_blank" class="btn">GitHub</a>
-          <a href="https://www.linkedin.com/in/oanhdo42" target="_blank" class="btn">LinkedIn</a>
-          <a href="mailto:oanhdo42@gmail.com" class="btn">Contact</a>
-        </div>
-      </div>
+.brand {
+  font-weight: 700;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
 
-      <!-- RIGHT STATUS CARD -->
-      <aside class="now-card">
-        <div class="now-header">En ce moment — Objectif 2027</div>
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 22px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
 
-        <div class="now-item">
-          <span class="now-tag">Recherche de stage</span>
-          <p>Réseaux &amp; Sécurité — Exploitation, Supervision &amp; Infrastructure (8 à 10 semaines dès le 12 avril 2027).</p>
-        </div>
+.nav-links a:hover {
+  color: var(--accent);
+}
 
-        <div class="now-item">
-          <span class="now-tag">Poursuite d'études</span>
-          <p>Possibilité d'alternance dès septembre 2027 (Mastère / MSc Cloud, Sécurité et Infrastructure).</p>
-        </div>
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-        <div class="now-item">
-          <span class="now-tag">Labs &amp; Réalisations</span>
-          <p>Réponse à incident PME (Defense-in-Depth, RBAC/AAA, MITRE ATT&amp;CK) et analyse comparative RIPv2 vs EIGRP.</p>
-        </div>
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green-soft);
+  color: var(--green);
+  border: 1px solid rgba(56, 229, 181, 0.3);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
 
-        <div class="now-item">
-          <span class="now-tag">Localisation</span>
-          <p>Basée à Lille (Hauts-de-France).</p>
-        </div>
-      </aside>
-    </section>
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+}
 
-    <!-- PARCOURS SECTION -->
-    <section id="parcours">
-      <div class="section-header">
-        <h2>Parcours</h2>
-        <p>Formation en cybersécurité &amp; infrastructure et expériences en support technique international.</p>
-      </div>
+.theme-btn {
+  background: var(--bg-pill);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
 
-      <!-- FORMATION -->
-      <div class="parcours-group">
-        <div class="group-title">Formation</div>
-        <div class="timeline-grid">
-          <article class="card">
-            <div>
-              <div class="card-date">09/2026 — 07/2027 · en cours</div>
-              <h3>Bachelor 3 Administrateur d'Infrastructures Sécurisées (AIS)</h3>
-              <p class="card-org">École La Plateforme · Lille</p>
-              <ul>
-                <li>Segmentation réseau (VLAN, DMZ, filtrage)</li>
-                <li>Virtualisation (Proxmox, VMware ESXi, Hyper-V), sauvegarde et PRA</li>
-                <li>Microsoft Entra ID (MFA, accès conditionnel)</li>
-                <li>Supervision et SIEM, gestion des risques (EBIOS RM, ISO 27001, recommandations ANSSI)</li>
-              </ul>
-            </div>
-            <div class="tags">
-              <span class="tag">VLAN / DMZ</span>
-              <span class="tag">Proxmox / ESXi</span>
-              <span class="tag">Entra ID</span>
-              <span class="tag">ISO 27001 / ANSSI</span>
-            </div>
-          </article>
+.theme-btn:hover {
+  border-color: var(--accent);
+}
 
-          <article class="card">
-            <div>
-              <div class="card-date">2010 — 2014</div>
-              <h3>Licence de Comptabilité</h3>
-              <p class="card-org">Université Van Lang</p>
-              <ul>
-                <li>Rigueur analytique, gestion financière et suivi budgétaire</li>
-              </ul>
-            </div>
-            <div class="tags">
-              <span class="tag">Gestion</span>
-              <span class="tag">Analyse</span>
-            </div>
-          </article>
-        </div>
-      </div>
+/* Main Container */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-      <!-- EXPÉRIENCES PROFESSIONNELLES -->
-      <div class="parcours-group">
-        <div class="group-title">Expérience professionnelle</div>
-        <div class="timeline-grid">
-          <article class="card">
-            <div>
-              <div class="card-date">2023 — Présent · en cours</div>
-              <h3>Reconversion en AIS</h3>
-              <p class="card-org">Lille, France</p>
-              <ul>
-                <li>Installation en France en 2024 et apprentissage autodidacte du français (niveau B2/C1 atteint en un an)</li>
-                <li>Admission sur sélection à une formation en cybersécurité, puis au titre professionnel Administrateur d'Infrastructures Sécurisées</li>
-              </ul>
-            </div>
-            <div class="tags">
-              <span class="tag">Cybersécurité</span>
-              <span class="tag">Systèmes &amp; Réseaux</span>
-              <span class="tag">Français B2/C1</span>
-            </div>
-          </article>
+/* Hero Section */
+.hero {
+  padding: 64px 0 48px;
+  display: grid;
+  grid-template-columns: 1.35fr 0.95fr;
+  gap: 40px;
+  align-items: start;
+  border-bottom: 1px solid var(--border);
+}
 
-          <article class="card">
-            <div>
-              <div class="card-date">03/2022 — 04/2023</div>
-              <h3>Responsable Qualité</h3>
-              <p class="card-org">Autonomous</p>
-              <ul>
-                <li>Formation d'une équipe de 10 techniciens aux outils et aux procédures internes</li>
-                <li>Rédaction de la documentation technique et suivi des indicateurs qualité</li>
-              </ul>
-            </div>
-            <div class="tags">
-              <span class="tag">Formation d'équipe</span>
-              <span class="tag">Documentation</span>
-              <span class="tag">KPI Qualité</span>
-            </div>
-          </article>
+.hero-eyebrow {
+  font-size: 0.88rem;
+  color: var(--accent-secondary);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
 
-          <article class="card">
-            <div>
-              <div class="card-date">03/2021 — 02/2022</div>
-              <h3>Technicienne Support N2</h3>
-              <p class="card-org">Autonomous</p>
-              <ul>
-                <li>Diagnostic et résolution d'incidents logiciels et firmware par semaine sur des produits domotiques connectés</li>
-                <li>Optimisation de la base de connaissances et des processus du centre d'aide</li>
-              </ul>
-            </div>
-            <div class="tags">
-              <span class="tag">Support N2</span>
-              <span class="tag">IoT / Firmware</span>
-              <span class="tag">Base de connaissances</span>
-            </div>
-          </article>
+.hero h1 {
+  font-size: 2.8rem;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
 
-          <article class="card">
-            <div>
-              <div class="card-date">11/2018 — 12/2019</div>
-              <h3>Spécialiste Service Client</h3>
-              <p class="card-org">Agoda</p>
-              <ul>
-                <li>Support technique multilingue pour des clients internationaux et des partenaires hôteliers</li>
-                <li>Contribution au déploiement de nouveaux outils et de nouvelles procédures</li>
-              </ul>
-            </div>
-            <div class="tags">
-              <span class="tag">Environnement international</span>
-              <span class="tag">Multilingue</span>
-              <span class="tag">Déploiement d'outils</span>
-            </div>
-          </article>
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
 
-          <article class="card">
-            <div>
-              <div class="card-date">10/2016 — 06/2018</div>
-              <h3>Technicienne Support N2</h3>
-              <p class="card-org">Fossil</p>
-              <ul>
-                <li>Support technique de niveau 2 sur des montres connectées et leurs applications</li>
-                <li>Tests produits et amélioration continue</li>
-              </ul>
-            </div>
-            <div class="tags">
-              <span class="tag">Support N2</span>
-              <span class="tag">Tests produits</span>
-              <span class="tag">Mobile &amp; Wearables</span>
-            </div>
-          </article>
+.hero-bio {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  margin-bottom: 28px;
+}
 
-          <article class="card">
-            <div>
-              <div class="card-date">09/2014 — 04/2016</div>
-              <h3>Assistante de Direction</h3>
-              <p class="card-org">Dai Loc</p>
-              <ul>
-                <li>Gestion administrative, suivi financier et traduction anglais-vietnamien</li>
-              </ul>
-            </div>
-            <div class="tags">
-              <span class="tag">Coordination</span>
-              <span class="tag">Suivi financier</span>
-              <span class="tag">Traduction EN-VI</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+.hero-bio strong {
+  color: var(--text);
+}
 
-    <!-- COMPÉTENCES SECTION -->
-    <section id="skills">
-      <div class="section-header">
-        <h2>Compétences</h2>
-        <p>Outils, protocoles et méthodes classés par domaine technique.</p>
-      </div>
+/* 4 Stat Cards Row */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
 
-      <div class="skills-grid">
-        <article class="card">
-          <div class="skill-card-head">
-            <div class="skill-badge">RA</div>
-            <div>
-              <h3>Réseaux &amp; Architecture</h3>
-              <span>Routage, segmentation &amp; protocoles</span>
-            </div>
-          </div>
-          <div class="tags">
-            <span class="tag">Routage &amp; Switching</span>
-            <span class="tag">Architectures LAN/WAN</span>
-            <span class="tag">VLAN</span>
-            <span class="tag">DMZ</span>
-            <span class="tag">Filtrage</span>
-            <span class="tag">TCP/IP</span>
-            <span class="tag">DNS</span>
-            <span class="tag">DHCP</span>
-            <span class="tag">HTTP/HTTPS</span>
-            <span class="tag">Équipements réseau</span>
-          </div>
-        </article>
+.stat-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
 
-        <article class="card">
-          <div class="skill-card-head">
-            <div class="skill-badge">SV</div>
-            <div>
-              <h3>Systèmes &amp; Virtualisation</h3>
-              <span>Administration serveurs &amp; conteneurs</span>
-            </div>
-          </div>
-          <div class="tags">
-            <span class="tag">Linux (CLI, services, droits)</span>
-            <span class="tag">Windows Server</span>
-            <span class="tag">Active Directory</span>
-            <span class="tag">Microsoft Entra ID</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">Proxmox</span>
-            <span class="tag">VMware ESXi</span>
-            <span class="tag">Hyper-V</span>
-          </div>
-        </article>
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-secondary);
+  display: block;
+}
 
-        <article class="card">
-          <div class="skill-card-head">
-            <div class="skill-badge">SS</div>
-            <div>
-              <h3>Sécurité &amp; Supervision</h3>
-              <span>Détection, analyse &amp; gestion des risques</span>
-            </div>
-          </div>
-          <div class="tags">
-            <span class="tag">Cisco CyberOps</span>
-            <span class="tag">Analyse d'incidents &amp; logs</span>
-            <span class="tag">Analyse trafic réseau</span>
-            <span class="tag">Supervision &amp; SIEM</span>
-            <span class="tag">Gestion des risques</span>
-            <span class="tag">EBIOS RM / ISO 27001 / ANSSI</span>
-            <span class="tag">CTF (SQLi, XSS, PrivEsc)</span>
-          </div>
-        </article>
+.stat-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
 
-        <article class="card">
-          <div class="skill-card-head">
-            <div class="skill-badge">DQ</div>
-            <div>
-              <h3>Support Avancé, Documentation &amp; Qualité</h3>
-              <span>MCO, ITSM &amp; coordination</span>
-            </div>
-          </div>
-          <div class="tags">
-            <span class="tag">Diagnostic N2</span>
-            <span class="tag">Maintien en conditions opérationnelles</span>
-            <span class="tag">Jira</span>
-            <span class="tag">Zendesk</span>
-            <span class="tag">Fresh Desk</span>
-            <span class="tag">Procédures techniques</span>
-            <span class="tag">Indicateurs qualité</span>
-            <span class="tag">Formation d'équipe</span>
-          </div>
-        </article>
-      </div>
-    </section>
+/* Hero Action Buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-    <!-- PROJETS SECTION -->
-    <section id="projects">
-      <div class="section-header">
-        <h2>Projets</h2>
-        <p>Réalisations techniques en cybersécurité, réponse à incident et architecture réseau documentées sur GitHub.</p>
-      </div>
+.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  transition: all 0.2s ease;
+}
 
-      <div class="projects-grid">
-        <!-- PROJET 1 -->
-        <article class="card">
-          <div>
-            <div class="card-date">Étude de cas · Cybersécurité &amp; Gouvernance — nov. 2026</div>
-            <h3>SME Incident Response &amp; Defense-in-Depth</h3>
-            <p class="card-org">Réponse à incident, durcissement d'infrastructure &amp; Threat Intelligence</p>
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
 
-            <p class="card-desc">
-              Étude de cas complète de réponse à incident et de durcissement sécuritaire pour une PME, couvrant la défense en profondeur, l'architecture RBAC/AAA et le renseignement sur les menaces MITRE ATT&amp;CK.
-            </p>
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  font-weight: 600;
+}
 
-            <div class="pipeline">
-              <span>Incident Response</span>
-              <span class="pipeline-arrow">→</span>
-              <span>MITRE ATT&amp;CK</span>
-              <span class="pipeline-arrow">→</span>
-              <span>RBAC / AAA</span>
-              <span class="pipeline-arrow">→</span>
-              <span>Defense-in-Depth</span>
-            </div>
+.btn-primary:hover {
+  opacity: 0.9;
+  color: #ffffff;
+}
 
-            <ul>
-              <li>Analyse d'incident de bout en bout et cartographie des TTPs selon le référentiel MITRE ATT&amp;CK</li>
-              <li>Conception d'une architecture de contrôle d'accès basée sur les rôles (RBAC) et l'authentification AAA</li>
-              <li>Plan de durcissement (Security Hardening) multicouche adapté aux enjeux d'une PME</li>
-            </ul>
-          </div>
+/* Right Hero Status Card ("En ce moment") */
+.now-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
 
-          <div>
-            <div class="tags">
-              <span class="tag">Incident Response</span>
-              <span class="tag">Defense-in-Depth</span>
-              <span class="tag">RBAC / AAA</span>
-              <span class="tag">MITRE ATT&amp;CK</span>
-              <span class="tag">Security Hardening</span>
-            </div>
+.now-header {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
 
-            <div class="project-footer">
-              <a href="https://github.com/odo42/sme-incident-response-defense-in-depth" target="_blank" class="repo-link">
-                Voir sur GitHub ↗
-              </a>
-            </div>
-          </div>
-        </article>
+.now-item {
+  margin-bottom: 16px;
+}
 
-        <!-- PROJET 2 -->
-        <article class="card">
-          <div>
-            <div class="card-date">Lab Réseau · Cisco Packet Tracer — nov. 2026</div>
-            <h3>RIPv2 vs EIGRP Failover Lab</h3>
-            <p class="card-org">Analyse comparative de routage dynamique &amp; haute disponibilité</p>
+.now-item:last-child {
+  margin-bottom: 0;
+}
 
-            <p class="card-desc">
-              Analyse comparative de la convergence, du calcul des métriques et du comportement de basculement (failover) entre RIPv2 et EIGRP au sein d'une topologie redondante en diamant à 4 routeurs.
-            </p>
+.now-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 3px;
+}
 
-            <div class="pipeline">
-              <span>Topologie 4 routeurs</span>
-              <span class="pipeline-arrow">→</span>
-              <span>RIPv2 vs EIGRP</span>
-              <span class="pipeline-arrow">→</span>
-              <span>Simulation de coupure</span>
-              <span class="pipeline-arrow">→</span>
-              <span>Analyse convergence</span>
-            </div>
+.now-item p {
+  font-size: 0.9rem;
+  color: var(--text);
+}
 
-            <ul>
-              <li>Déploiement et configuration d'une topologie redondante en diamant à 4 routeurs sous Cisco Packet Tracer</li>
-              <li>Comparaison des métriques de routage (sauts RIPv2 vs bande passante/délai EIGRP)</li>
-              <li>Tests de basculement (failover) et mesure des temps de convergence lors d'une panne de lien</li>
-            </ul>
-          </div>
+/* Sections */
+section {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border);
+}
 
-          <div>
-            <div class="tags">
-              <span class="tag">Cisco Packet Tracer</span>
-              <span class="tag">RIPv2</span>
-              <span class="tag">EIGRP</span>
-              <span class="tag">Routing Protocols</span>
-              <span class="tag">Failover &amp; Convergence</span>
-            </div>
+.section-header {
+  margin-bottom: 32px;
+}
 
-            <div class="project-footer">
-              <a href="https://github.com/odo42/ripv2-vs-eigrp-failover-lab" target="_blank" class="repo-link">
-                Voir sur GitHub ↗
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+.section-header h2 {
+  font-size: 1.75rem;
+  margin-bottom: 6px;
+  color: var(--accent);
+}
 
-    <!-- CERTIFICATIONS & LANGUES SECTION -->
-    <section id="certif">
-      <div class="section-header">
-        <h2>Certifications &amp; Langues</h2>
-        <p>Certifications validées, langues parlées et centres d'intérêt.</p>
-      </div>
+.section-header p {
+  color: var(--text-muted);
+  font-size: 0.96rem;
+}
 
-      <div class="cert-grid">
-        <article class="card">
-          <div>
-            <div class="cert-issuer">DesCodeuses · Cisco</div>
-            <h3>Certificat Cisco CyberOps Associate</h3>
-            <span class="cert-status">Obtenu · 04/2026</span>
-            <p class="card-org">Analyse d'incidents de sécurité, surveillance des journaux, analyse du trafic réseau et opérations SOC.</p>
-          </div>
-        </article>
+/* Parcours Columns */
+.parcours-group {
+  margin-bottom: 36px;
+}
 
-        <article class="card">
-          <div>
-            <div class="cert-issuer">Langues</div>
-            <h3>Communication Internationale</h3>
-            <p class="card-org" style="margin-top: 10px;">
-              <strong>Vietnamien :</strong> Langue maternelle<br />
-              <strong>Anglais :</strong> Bilingue<br />
-              <strong>Français :</strong> Professionnel (B2/C1)
-            </p>
-          </div>
-        </article>
+.parcours-group:last-child {
+  margin-bottom: 0;
+}
 
-        <article class="card">
-          <div>
-            <div class="cert-issuer">Centres d'intérêt</div>
-            <h3>Curiosité Technique</h3>
-            <p class="card-org" style="margin-top: 10px;">
-              Documentation technique, sciences et bricolage (DIY).
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
+.group-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-secondary);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" style="border-bottom: none;">
-      <div class="section-header">
-        <h2>Me contacter</h2>
-        <p>
-          À la recherche d'un stage de 8 à 10 semaines en Réseaux &amp; Sécurité (Exploitation, Supervision &amp; Infrastructure) à partir du 12 avril 2027, avec possibilité de poursuite en alternance dès septembre 2027. Basée à Lille.
-        </p>
-      </div>
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 18px;
+}
 
-      <div class="contact-grid">
-        <div class="contact-item">
-          <span>Email</span>
-          <a href="mailto:oanhdo42@gmail.com">oanhdo42@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <span>Téléphone</span>
-          <a href="tel:+33619358287">06 19 35 82 87</a>
-        </div>
-        <div class="contact-item">
-          <span>Zone</span>
-          <strong>Lille, France</strong>
-        </div>
-        <div class="contact-item">
-          <span>GitHub</span>
-          <a href="https://github.com/odo42" target="_blank">github.com/odo42</a>
-        </div>
-        <div class="contact-item">
-          <span>LinkedIn</span>
-          <a href="https://www.linkedin.com/in/oanhdo42" target="_blank">linkedin.com/oanhdo42</a>
-        </div>
-        <div class="contact-item">
-          <span>Portfolio</span>
-          <a href="https://odo42.github.io/" target="_blank">odo42.github.io</a>
-        </div>
-      </div>
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
 
-      <div class="hero-actions">
-        <a href="mailto:oanhdo42@gmail.com" class="btn btn-primary">Envoyer un email</a>
-        <a href="https://www.linkedin.com/in/oanhdo42" target="_blank" class="btn">Profil LinkedIn</a>
-        <a href="https://github.com/odo42" target="_blank" class="btn">GitHub</a>
-      </div>
-    </section>
+.card:hover {
+  border-color: var(--accent);
+}
 
-  </main>
+.card-date {
+  font-size: 0.8rem;
+  color: var(--accent-secondary);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
 
-  <footer>
-    Oanh DO — Bachelor 3 Administrateur d'Infrastructures Sécurisées, École La Plateforme Lille —
-    <a href="https://github.com/odo42" target="_blank">github.com/odo42</a>
-  </footer>
+.card h3 {
+  font-size: 1.08rem;
+  margin-bottom: 4px;
+  color: var(--text);
+}
 
-  <script>
-    const toggleBtn = document.getElementById('theme-toggle');
-    const htmlEl = document.documentElement;
+.card-org {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
 
-    toggleBtn.addEventListener('click', () => {
-      const isDark = htmlEl.getAttribute('data-theme') === 'dark';
-      htmlEl.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      toggleBtn.textContent = isDark ? '◐ Sombre' : '◐ Clair';
-    });
-  </script>
-</body>
-</html>
+.card p.card-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.card ul {
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.card li {
+  margin-bottom: 5px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.tag {
+  background: var(--bg-pill);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+}
+
+/* Projets Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.pipeline-arrow {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.repo-link:hover {
+  text-decoration: underline;
+}
+
+/* Compétences Grid (2x2) */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.skill-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.skill-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-card-head h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0;
+}
+
+.skill-card-head span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Certifications Grid */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.cert-issuer {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-secondary);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.cert-status {
+  display: inline-block;
+  font-size: 0.78rem;
+  background: var(--green-soft);
+  color: var(--green);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+/* Contact Section */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.contact-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.contact-item span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.contact-item a,
+.contact-item strong {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contact-item a:hover {
+  color: var(--accent);
+}
+
+/* Footer */
+footer {
+  padding: 32px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer a {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-links {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
